@@ -275,6 +275,7 @@ function App() {
 								)}
 							</div>
 							<div className="block w-full sm:hidden">{searchBar}</div>
+							<ThemeSwitch userPreference={data.requestInfo.userPrefs.theme} />
 						</div>
 					</nav>
 				</header>
@@ -288,8 +289,6 @@ function App() {
 						<div className="font-light">epic</div>
 						<div className="font-bold">notes</div>
 					</Link>
-
-					<ThemeSwitch userPreference={data.requestInfo.userPrefs.theme} />
 				</div>
 			</div>
 			<Confetti id={data.confettiId} />
