@@ -247,9 +247,21 @@ function App() {
 					<nav>
 						<div className="flex flex-wrap items-center justify-between gap-4 sm:flex-nowrap md:gap-8">
 							<Link to="/">
-								<div className="font-light">epic</div>
-								<div className="font-bold">notes</div>
+								<div className="font-light">Blog</div>
 							</Link>
+
+							<Link to="/">
+								<div className="font-light">Cypress</div>
+							</Link>
+
+							<Link to="/">
+								<div className="font-light">Uses</div>
+							</Link>
+
+							<Link to="/">
+								<div className="font-light">About</div>
+							</Link>
+
 							<div className="ml-auto hidden max-w-sm flex-1 sm:block">
 								{searchBar}
 							</div>
@@ -276,6 +288,7 @@ function App() {
 						<div className="font-light">epic</div>
 						<div className="font-bold">notes</div>
 					</Link>
+
 					<ThemeSwitch userPreference={data.requestInfo.userPrefs.theme} />
 				</div>
 			</div>
