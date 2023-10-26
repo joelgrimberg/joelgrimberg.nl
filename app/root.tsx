@@ -12,6 +12,7 @@ import {
 	Form,
 	Link,
 	Links,
+	NavLink,
 	LiveReload,
 	Meta,
 	Outlet,
@@ -59,6 +60,7 @@ import { type Theme, setTheme, getTheme } from './utils/theme.server.ts'
 import { makeTimings, time } from './utils/timing.server.ts'
 import { getToast } from './utils/toast.server.ts'
 import { useOptionalUser, useUser } from './utils/user.ts'
+import { cn } from '#app/utils/misc.tsx'
 
 export const links: LinksFunction = () => {
 	return [
@@ -243,25 +245,39 @@ function App() {
 	return (
 		<Document nonce={nonce} theme={theme} env={data.ENV}>
 			<div className="flex h-screen flex-col justify-between">
-				<header className="container py-6">
+				<header className="container py-5">
 					<nav>
-						<div className="flex flex-wrap items-center justify-between gap-4 sm:flex-nowrap md:gap-8">
-							<Link to="/">
+						<div className="flex flex-wrap items-center justify-between gap-3 sm:flex-nowrap md:gap-8">
+							<NavLink
+								to="/"
+								className={({ isActive }) => cn('', isActive && 'underline')}
+							>
+								Joël Grimberg
+							</NavLink>
+							<NavLink
+								to="/blog"
+								className={({ isActive }) => cn('', isActive && 'underline')}
+							>
 								<div className="font-light">Blog</div>
-							</Link>
-
-							<Link to="/">
+							</NavLink>
+							<NavLink
+								to="/cypress"
+								className={({ isActive }) => cn('', isActive && 'underline')}
+							>
 								<div className="font-light">Cypress</div>
-							</Link>
-
-							<Link to="/">
+							</NavLink>
+							<NavLink
+								to="/uses"
+								className={({ isActive }) => cn('', isActive && 'underline')}
+							>
 								<div className="font-light">Uses</div>
-							</Link>
-
-							<Link to="/">
+							</NavLink>
+							<NavLink
+								to="/about"
+								className={({ isActive }) => cn('', isActive && 'underline')}
+							>
 								<div className="font-light">About</div>
-							</Link>
-
+							</NavLink>
 							<div className="ml-auto hidden max-w-sm flex-1 sm:block">
 								{searchBar}
 							</div>
