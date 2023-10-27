@@ -1,0 +1,22 @@
+---
+componentData:
+  label: Hello, World!
+meta:
+  - title: My Awesome First Post using attributes.meta.title
+  - name: description
+    content: Isn't this just awesome?
+title: My
+---
+
+import BlogHeader from '#app/components/blog-header'
+// console.log('my_title', my_title) does not work:
+
+{/* <BlogHeader header={...attributes.title} /> */}
+
+works:
+
+<BlogHeader {...attributes.title} />
+
+---
+
+works: {attributes.title}

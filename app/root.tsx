@@ -53,14 +53,18 @@ import { csrf } from './utils/csrf.server.ts'
 import { prisma } from './utils/db.server.ts'
 import { getEnv } from './utils/env.server.ts'
 import { honeypot } from './utils/honeypot.server.ts'
-import { combineHeaders, getDomainUrl, getUserImgSrc } from './utils/misc.tsx'
+import {
+	combineHeaders,
+	getDomainUrl,
+	getUserImgSrc,
+	cn,
+} from './utils/misc.tsx'
 import { useNonce } from './utils/nonce-provider.ts'
 import { useRequestInfo } from './utils/request-info.ts'
 import { type Theme, setTheme, getTheme } from './utils/theme.server.ts'
 import { makeTimings, time } from './utils/timing.server.ts'
 import { getToast } from './utils/toast.server.ts'
 import { useOptionalUser, useUser } from './utils/user.ts'
-import { cn } from '#app/utils/misc.tsx'
 
 export const links: LinksFunction = () => {
 	return [
@@ -273,7 +277,7 @@ function App() {
 								<div className="font-light">Uses</div>
 							</NavLink>
 							<NavLink
-								to="/about"
+								to="/aboutme"
 								className={({ isActive }) => cn('', isActive && 'underline')}
 							>
 								<div className="font-light">About</div>
