@@ -248,19 +248,28 @@ function App() {
 
 	return (
 		<Document nonce={nonce} theme={theme} env={data.ENV}>
-			<div className="flex h-screen flex-col justify-between">
+			<div className="flex h-screen flex-col justify-between bg-white transition duration-500 dark:bg-gray-800">
 				<header className="container py-5 ">
 					<nav>
 						<div className="flex flex-wrap items-center justify-between gap-3 sm:flex-nowrap md:gap-8 ">
 							<NavLink
+								//text-primary underlined block whitespace-nowrap text-2xl font-medium transition focus:outline-none
 								to="/"
-								className={({ isActive }) => cn('', isActive && 'underline')}
+								className={({ isActive }) =>
+									cn(
+										'block whitespace-nowrap text-2xl font-medium text-primary  transition focus:outline-none',
+										isActive && 'underline',
+									)
+								}
 							>
 								Joël Grimberg
 							</NavLink>
+
 							<NavLink
 								to="/blog/post"
-								className={({ isActive }) => cn('', isActive && 'underline')}
+								className={({ isActive }) =>
+									cn('block whitespace-nowrap', isActive && 'underline')
+								}
 							>
 								<div className="font-light">Blog</div>
 							</NavLink>

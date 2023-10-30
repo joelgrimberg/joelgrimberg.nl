@@ -3,6 +3,7 @@ import { NavLink, useLoaderData, Outlet } from '@remix-run/react'
 import * as blog1 from 'post.post1.mdx'
 import * as blog2 from 'post.post2.mdx'
 import * as blog3 from 'post.post3.mdx'
+import { cn } from '#app/utils/misc.tsx'
 
 function postFromModule(mod: any) {
 	const fileName = mod.filename.replace(/\.mdx?$/, '')
@@ -30,14 +31,17 @@ export default function Blog() {
 	const data = useLoaderData<typeof loader>()
 	console.log('data: ', data)
 	return (
-		<div className="container flex flex-wrap items-center justify-between gap-3 align-top sm:flex-nowrap md:gap-8">
-			<div className="container flex-1 align-top">
-				Blog related stuff
+		<div className="container  flex flex-wrap items-center justify-between gap-3 align-top sm:flex-nowrap md:gap-8">
+			<div></div>
+			<div className="containerflex-1  h-screen align-top">
 				{data.map(something => {
 					return (
 						<div key={something.slug}>
 							<h1>
-								<NavLink to={`/blog/post/${something.slug}`}>
+								<NavLink
+									className={({ isActive }) => cn('', isActive && 'underline')}
+									to={`/blog/post/${something.slug}`}
+								>
 									{something.slug}
 								</NavLink>
 							</h1>
@@ -45,7 +49,7 @@ export default function Blog() {
 					)
 				})}
 			</div>
-			<div className="grid w-full grid-cols-1 pl-2 md:container md:mx-2 md:pr-0">
+			<div className="grid h-screen w-full grid-cols-1 pl-2 md:container md:mx-2  md:pr-0 ">
 				<Outlet />
 			</div>
 		</div>
