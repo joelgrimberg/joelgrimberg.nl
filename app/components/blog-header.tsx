@@ -1,4 +1,8 @@
-export default function BlogHeader({ header }) {
-	console.log('header', header)
-	return <div>a {header}</div>
+export default function BlogHeader({ image }: { image: string }) {
+	console.log('image', image)
+	return (
+		<div>
+			<img src={image} alt="neon art" />
+		</div>
+	)
 }

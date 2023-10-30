@@ -221,7 +221,7 @@ function Document({
 				<meta name="viewport" content="width=device-width,initial-scale=1" />
 				<Links />
 			</head>
-			<body className="bg-background text-foreground">
+			<body className="bg-background text-foreground ">
 				{children}
 				<script
 					nonce={nonce}
@@ -249,9 +249,9 @@ function App() {
 	return (
 		<Document nonce={nonce} theme={theme} env={data.ENV}>
 			<div className="flex h-screen flex-col justify-between">
-				<header className="container py-5">
+				<header className="container py-5 ">
 					<nav>
-						<div className="flex flex-wrap items-center justify-between gap-3 sm:flex-nowrap md:gap-8">
+						<div className="flex flex-wrap items-center justify-between gap-3 sm:flex-nowrap md:gap-8 ">
 							<NavLink
 								to="/"
 								className={({ isActive }) => cn('', isActive && 'underline')}
@@ -259,7 +259,7 @@ function App() {
 								Joël Grimberg
 							</NavLink>
 							<NavLink
-								to="/blog"
+								to="/blog/post"
 								className={({ isActive }) => cn('', isActive && 'underline')}
 							>
 								<div className="font-light">Blog</div>

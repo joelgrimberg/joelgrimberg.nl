@@ -1,5 +1,5 @@
 {
-  "include": ["**/*.ts", "**/*.tsx", "app/routes/blog_+/blog.mdx"],
+  "include": ["**/*.ts", "**/*.tsx"],
   "compilerOptions": {
     "lib": ["DOM", "DOM.Iterable", "ES2022"],
     "isolatedModules": true,
