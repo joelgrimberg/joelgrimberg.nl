@@ -12,6 +12,7 @@ import {
 	Form,
 	Link,
 	Links,
+	NavLink,
 	LiveReload,
 	Meta,
 	Outlet,
@@ -52,7 +53,12 @@ import { csrf } from './utils/csrf.server.ts'
 import { prisma } from './utils/db.server.ts'
 import { getEnv } from './utils/env.server.ts'
 import { honeypot } from './utils/honeypot.server.ts'
-import { combineHeaders, getDomainUrl, getUserImgSrc } from './utils/misc.tsx'
+import {
+	combineHeaders,
+	getDomainUrl,
+	getUserImgSrc,
+	cn,
+} from './utils/misc.tsx'
 import { useNonce } from './utils/nonce-provider.ts'
 import { useRequestInfo } from './utils/request-info.ts'
 import { type Theme, setTheme, getTheme } from './utils/theme.server.ts'
@@ -215,7 +221,7 @@ function Document({
 				<meta name="viewport" content="width=device-width,initial-scale=1" />
 				<Links />
 			</head>
-			<body className="bg-background text-foreground">
+			<body className="bg-background text-foreground ">
 				{children}
 				<script
 					nonce={nonce}
@@ -242,26 +248,49 @@ function App() {
 
 	return (
 		<Document nonce={nonce} theme={theme} env={data.ENV}>
-			<div className="flex h-screen flex-col justify-between">
-				<header className="container py-6">
+			<div className="flex h-screen flex-col justify-between bg-white transition duration-500 dark:bg-gray-800">
+				<header className="container py-5 ">
 					<nav>
-						<div className="flex flex-wrap items-center justify-between gap-4 sm:flex-nowrap md:gap-8">
-							<Link to="/">
+						<div className="flex flex-wrap items-center justify-between gap-3 sm:flex-nowrap md:gap-8 ">
+							<NavLink
+								//text-primary underlined block whitespace-nowrap text-2xl font-medium transition focus:outline-none
+								to="/"
+								className={({ isActive }) =>
+									cn(
+										'block whitespace-nowrap text-2xl font-medium text-primary  transition focus:outline-none',
+										isActive && 'underline',
+									)
+								}
+							>
+								Joël Grimberg
+							</NavLink>
+
+							<NavLink
+								to="/blog/post"
+								className={({ isActive }) =>
+									cn('block whitespace-nowrap', isActive && 'underline')
+								}
+							>
 								<div className="font-light">Blog</div>
-							</Link>
-
-							<Link to="/">
+							</NavLink>
+							<NavLink
+								to="/cypress"
+								className={({ isActive }) => cn('', isActive && 'underline')}
+							>
 								<div className="font-light">Cypress</div>
-							</Link>
-
-							<Link to="/">
+							</NavLink>
+							<NavLink
+								to="/uses"
+								className={({ isActive }) => cn('', isActive && 'underline')}
+							>
 								<div className="font-light">Uses</div>
-							</Link>
-
-							<Link to="/">
+							</NavLink>
+							<NavLink
+								to="/aboutme"
+								className={({ isActive }) => cn('', isActive && 'underline')}
+							>
 								<div className="font-light">About</div>
-							</Link>
-
+							</NavLink>
 							<div className="ml-auto hidden max-w-sm flex-1 sm:block">
 								{searchBar}
 							</div>
